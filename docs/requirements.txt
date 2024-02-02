@@ -1,4 +1,3 @@
 ipython
 pydata_sphinx_theme
 myst-parser
-myst-nb

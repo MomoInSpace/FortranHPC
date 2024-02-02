@@ -1,3 +1,4 @@
-nbsphinx
 ipython
-pydata-sphinx-theme
+pydata_sphinx_theme
+myst-parser
+myst-nb

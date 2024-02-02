@@ -15,12 +15,12 @@ project_url = "."
 # -- Path setup --------------------------------------------------------------
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ["docs/_templates"]
+templates_path = ["/_templates"]
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["docs/_static"]
+html_static_path = ["/_static"]
 
 # Final Path of css-files: _static/css/...
 html_css_files = ["/css/footer.css"]
@@ -33,11 +33,11 @@ html_css_files = ["/css/footer.css"]
 # ones.
 
 extensions = [
-    'nbsphinx',
+    # 'nbsphinx',
     # "sphinx_sitemap",           # Sitemap
     'sphinx.ext.intersphinx',   # Used for Connecting Different Sphinx-Documentations
     # "sphinxext.rediraffe",      # Used to redirect non-existent/old pages to working pages
-    # "myst_nb",                  # Markdown with Myst
+    "myst_nb",                  # Markdown with Myst
     "sphinx.ext.mathjax",
 ]
 
@@ -53,7 +53,7 @@ html_theme = "pydata_sphinx_theme"
 # Specifying the suffix for various extensions. (MySt, jupyter_sphinx)
 source_suffix = {
     '.rst': 'restructuredtext',
-    # '.md': 'myst_with_inline_math',
+    '.md': 'markdown',
 }
 
 # List of patterns, relative to source directory, that match files and

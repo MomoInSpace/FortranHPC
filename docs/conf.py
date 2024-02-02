@@ -226,32 +226,32 @@ mathjax3_config = {
 #     print("the following prolog will be prepended:")
 #     print(rst_prolog)
 
-print("Converting Latex to rst:========================================================")
+# print("Converting Latex to rst:========================================================")
 
-def get_files_with_later_timestamp(directory):
-    tex_files = []
-    for root, dir_names, file_names in os.walk(directory):
-        for file_name in file_names:
-            if fnmatch.fnmatch(file_name, '*.tex'):
-                # print(file_name)
-                tex_path = os.path.join(root, file_name)
-                rst_path = os.path.join(root, file_name[:-3] + 'rst')
-                # print(f"Tex time: {os.path.getmtime(tex_path)}")
-                # print(f"rst time: {os.path.getmtime(rst_path)}")
-                if (os.path.exists(rst_path) and os.path.getmtime(rst_path) < os.path.getmtime(tex_path)) or not os.path.exists(rst_path):
-                    tex_files.append(tex_path)
-                    # print(f"{tex_path} {rst_path} {root}")
-                    # print("Files:")
-                    # print("Subprocess:")
-                    pdf_filepath = os.path.join(root,"tex_pdf")
-                    pdf_filepath =os.path.join(pdf_filepath, file_name[:-3] + 'pdf')
-                    print(f"PDF FILEPATH: {pdf_filepath}")
-                    print(subprocess.run([f"{directory}_static/scripts/conversion.sh {tex_path} {rst_path} {root} {pdf_filepath}"],shell=True))
-    return tex_files
+# def get_files_with_later_timestamp(directory):
+#     tex_files = []
+#     for root, dir_names, file_names in os.walk(directory):
+#         for file_name in file_names:
+#             if fnmatch.fnmatch(file_name, '*.tex'):
+#                 # print(file_name)
+#                 tex_path = os.path.join(root, file_name)
+#                 rst_path = os.path.join(root, file_name[:-3] + 'rst')
+#                 # print(f"Tex time: {os.path.getmtime(tex_path)}")
+#                 # print(f"rst time: {os.path.getmtime(rst_path)}")
+#                 if (os.path.exists(rst_path) and os.path.getmtime(rst_path) < os.path.getmtime(tex_path)) or not os.path.exists(rst_path):
+#                     tex_files.append(tex_path)
+#                     # print(f"{tex_path} {rst_path} {root}")
+#                     # print("Files:")
+#                     # print("Subprocess:")
+#                     pdf_filepath = os.path.join(root,"tex_pdf")
+#                     pdf_filepath =os.path.join(pdf_filepath, file_name[:-3] + 'pdf')
+#                     print(f"PDF FILEPATH: {pdf_filepath}")
+#                     print(subprocess.run([f"{directory}_static/scripts/conversion.sh {tex_path} {rst_path} {root} {pdf_filepath}"],shell=True))
+#     return tex_files
 
 # Example usage:
-directory_path = './'
-tex_files = get_files_with_later_timestamp(directory_path)
-print("DONE===========================================================================")
+# directory_path = './'
+# tex_files = get_files_with_later_timestamp(directory_path)
+# print("DONE===========================================================================")
 # print("FILES:===========")
 # for tex_file in tex_files:

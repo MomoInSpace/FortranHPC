@@ -1,14 +1,5 @@
 # HPC Fortran
 
-Source Code on [MomoInSpace/FortranHPC](https://github.com/MomoInSpace/FortranHPC)
-
-```{toctree}
-:maxdepth: 2
-
-MPI Fortran <./mpi/init.md>
-CUDA Fortran <./cuda/init.md>
-```
-
 ## Resources
 
 To allocate the modules on levante, we use the commands below. As we want to sometimes use an interactive node for testing, we will also move to an interactive node:

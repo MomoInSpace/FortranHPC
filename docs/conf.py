@@ -37,7 +37,7 @@ extensions = [
     # "sphinx_sitemap",           # Sitemap
     'sphinx.ext.intersphinx',   # Used for Connecting Different Sphinx-Documentations
     # "sphinxext.rediraffe",      # Used to redirect non-existent/old pages to working pages
-    "myst_parser"
+    "myst_parser",
     # "myst_nb",                  # Markdown with Myst
     "sphinx.ext.mathjax",
 ]

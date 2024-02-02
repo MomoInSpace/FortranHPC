@@ -1,0 +1,66 @@
+! This Code demonstrates how kernels work in cuda.
+
+module kernels_m
+    contains 
+
+    attributes(global) subroutine kernel(a,offset)
+        implicit none
+
+    ! Params===================================================================
+    real           :: a(*)
+    integer, value :: offset
+    integer        :: i
+    real           :: c, s, x
+
+    ! Body ====================================================================
+    i = offset + threadIdx%x + (blockIdx%x-1)*blockDim%x
+    x = i; s = sin(x); c = cos(x)
+    a(i) = a(i) + sqrt(s**2+c**2)
+
+    end subroutine kernel
+end module kernels_m
+
+program executeKernel
+    use cudafor
+    use kernels_m
+    implicit none
+
+    ! Params===================================================================
+    integer, parameter             :: blockSize = 256, &
+                                      nStreams  = 4, &
+                                      n = 2**8*1024*blockSize*nStreams 
+    real, pinned, allocatable      :: a(:)
+    real, device                   :: a_d(n)
+    integer(kind=cuda_stream_kind) :: stream(nStreams)
+    integer                        :: i, istat, offset, &
+                                      streamSize = n/nStreams
+    logical                        :: pinnedFlag
+    type(cudaDeviceProp)           :: prop
+
+    ! Body ====================================================================
+    ! Write Device Name
+    istat = cudaGetDeviceProperties(prop, 0)
+    write(*,"(' Device: ', a,/)") trim(prop%name)
+
+    ! Allocate pinned host ----------------------------------------------------
+    allocate(a(n), STAT=istat, PINNED=pinnedFlag)
+    ! Error Handling of Allocation:
+    if(istat /= 0) then; write(*,*) 'Allocation of "a" failed'; stop
+    else if(.not. pinnedFlag) then; write(*,*) 'Pinned allocation failed'
+    end if
+
+    ! Baseline case - sequential transfer and execute -------------------------
+    a = 0
+
+    ! Execute kernel 
+    a_d = a
+    call kernel<<<n/blockSize, blockSize>>>(a_d, 0)
+    a   = a_d
+
+    ! Output the Result
+    write(*,*) 'You calculated the som of sin(x)**2+cos(x)**2. Well done! The result is ', maxval(abs(a))
+
+    ! Cleanup -----------------------------------------------------------------
+    deallocate(a)
+
+end program executeKernel

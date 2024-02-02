@@ -59,10 +59,10 @@ source_suffix = {
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "**.ipynb_checkpoints"]
-# exclude all markdown files which are also ipynb files to prevent false warnings
-exclude_patterns += [fn.replace(".ipynb", ".md")
-                     for fn in glob.glob("**/*.ipynb", recursive=True)]
+# exclude_patterns = ["_build", "**.ipynb_checkpoints"]
+# # exclude all markdown files which are also ipynb files to prevent false warnings
+# exclude_patterns += [fn.replace(".ipynb", ".md")
+#                      for fn in glob.glob("**/*.ipynb", recursive=True)]
 
 
 
@@ -123,9 +123,9 @@ html_theme_options = {
 
 # .. nbsphinx ............................................
 
-nbsphinx_custom_formats = {
-    ".md": ["jupytext.reads", {"fmt": "mystnb"}],
-}
+# nbsphinx_custom_formats = {
+#     ".md": ["jupytext.reads", {"fmt": "mystnb"}],
+# }
 
 # .. Intersphinx .........................................
 intersphinx_mapping = {
@@ -144,7 +144,7 @@ myst_url_schemes = ['http','https', ]
 # rediraffe_branch = "main~1"            # ensures that deleted/renamed files are in the repo
 
 # .. Myst_nb ............................................. 
-nb_execution_mode = 'off'
+# nb_execution_mode = 'off'
 
 # Mathjax
 mathjax3_config = {

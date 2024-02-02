@@ -26,4 +26,10 @@ srun --ntasks=4 --ntasks_per_node=2 --cpus_per_task=4 ./my_program
 
 The compiler we use is called `nvfortran`, for mpi cases we use `mpifort`
 
-https://curc.readthedocs.io/en/latest/programming/MPI-Fortran.html
+## Further Reading and Sources
+
+Many code example are either copies or modifications from other sources. They will be made clear at the start of the scripts or in the respective documentation. Nethertheleass here are some sources and further reading:
+
+* [CUDA Fortran for Scientists and Engineers](https://www.sciencedirect.com/book/9780124169708/cuda-fortran-for-scientists-and-engineers)
+* [Modern Fortran explained: incorporating Fortran](https://pdfroom.com/books/modern-fortran-explained-incorporating-fortran-2018/jN2R0oALdvW)
+* [MPI-Fortran Docs](https://curc.readthedocs.io/en/latest/programming/MPI-Fortran.html)

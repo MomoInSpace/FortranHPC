@@ -1,6 +1,6 @@
 # Cuda Bandwidth
 
-This code example shows the importance of using pinned memory vs pageable memory. The script sends an array from the host to the device and back. In my case:
+The code example in `cuda/cuda01_memory_bandwidth.cuf` shows the importance of using pinned memory vs pageable memory. It is from the book `CUDA Fortran for Scientists and Engineers, page 48`. The script sends an array from the host to the device and back. In my case:
 
 ```bash
 bash-4.4$ ./band.o 

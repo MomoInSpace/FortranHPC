@@ -33,7 +33,7 @@ html_css_files = ["/css/footer.css"]
 # ones.
 
 extensions = [
-    # 'nbsphinx',
+    'nbsphinx',
     # "sphinx_sitemap",           # Sitemap
     'sphinx.ext.intersphinx',   # Used for Connecting Different Sphinx-Documentations
     # "sphinxext.rediraffe",      # Used to redirect non-existent/old pages to working pages

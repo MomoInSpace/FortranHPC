@@ -2,7 +2,7 @@
 
 Note: This example of how kernels work is not very detailed.
 
-The file `cuda/cuda02/cuda02_simple_kernel.cuf` creates a kernel which calculates $Sin(x)^2 + Cos(x)^2 = 1$, for each value of an array a. The kernel looks as follows:
+The file [cuda_simple_kernel.cuf](https://github.com/MomoInSpace/FortranHPC/tree/main/source/cuda/cuda_simple_kernel/cuda_simple_kernel.cuf) creates a kernel which calculates $Sin(x)^2 + Cos(x)^2 = 1$, for each value of an array a. The kernel looks as follows:
 
 ```fortran
 module kernels_m

@@ -1,6 +1,6 @@
 # Simple Threads
 
-The program `thread_number.f90` in [MomoInSpace/FortranHPC/mpi01_threads](https://github.com/MomoInSpace/FortranHPC/tree/main/source/mpi/mpi01_threads) is a simple program which checks if mpi is set up correctly.
+The program in [thread_number.90](https://github.com/MomoInSpace/FortranHPC/tree/main/source/mpi/mpi_threads/mpi_thread_number.f90) is a simple program which checks if mpi is set up correctly where each thread prints out its number.
 
 To compile, use 
 
